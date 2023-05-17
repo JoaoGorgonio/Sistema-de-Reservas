@@ -11,9 +11,10 @@ return new class extends Migration
         Schema::create('tb_usuario', function (Blueprint $table) {
             $table->unsignedBigInteger('cd_usuario')->autoIncrement();
             $table->string('nm_usuario', 120);
-            $table->string('cd_email', 320);
+            $table->string('cd_email', 320)->unique();
             $table->string('cd_senha', 255);
             $table->boolean('ic_admin')->default(false);
+            $table->string('cd_token')->nullable();
             $table->timestamps();
         });
     }
