@@ -6,29 +6,37 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
     public function login(Request $request)
     {
-        $credentials = [
-            'cd_email' => $request->email,
-            'cd_senha' => $request->password
-        ];
+        $request->validate([
+            'email' => 'required|string',
+            'password' => 'required|string'
+        ]);
 
-        if (Auth::attempt($credentials)) {
-            $user = Auth::user();
-            $token = $user->createToken('token_name', ['cd_token']);
-            $cdTokenValue = $token->plainTextToken;
-            return response()->json($cdTokenValue, 200);
+        $user = User::where('cd_email', $request->email)->first();
+        if (!$user || !Hash::check($request->password, $user->cd_senha)) {
+            return response([
+                'message' => 'Acesso inválido.'
+            ], 401);
         }
 
-        return response()->json('Usuário inválido', 401);
+        $token = $user->createToken('token_name', ['cd_token'])->plainTextToken;
+        $request->session()->put('cd_token', $token);
+        return Response::json([
+            'cd_token' => $token
+        ]);
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
-        Auth::user()->currentAccessToken()?->delete();
-        return response()->json(['message' => 'Logout realizado com sucesso.'], 200);
+        $request->session()->pull('cd_token');
+        return redirect()->route('login');
     }
 }

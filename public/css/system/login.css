@@ -21,6 +21,10 @@
     background-color: var(--white);
 }
 
+.login .login-container .login-form :is(label.error, .error-message) {
+    color: #ff4f4f;
+}
+
 .login .login-container .login-form input:focus-visible {
     border: 0.2rem solid var(--green);
     outline: none;

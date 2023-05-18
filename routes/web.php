@@ -2,15 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\ReservationsController;
+use App\Http\Middleware\LoginAuth;
 
-Route::get('/login', [UsersController::class, 'index']);
+Route::get('/login', [UsersController::class, 'index'])->name('login');
+Route::middleware(LoginAuth::class)->group(function () {
+    Route::get('/reservation', [ReservationsController::class, 'index']);
+});
