@@ -15,6 +15,7 @@ class User extends Model implements Authenticatable
     use AuthenticatableTrait;
 
     protected $table = 'tb_usuario';
+    protected $primaryKey = 'cd_usuario';
     protected $fillable = [
         'cd_usuario',
         'nm_usuario',
