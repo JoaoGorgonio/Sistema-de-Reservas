@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const table = $(this).data('table');
         const date = $('input[name="date_reservation"]').val();
         const hour = $('select[name="hour_reservation"]').val();
+        $(this).text('Reservando...');
         $.ajax({
             type: 'POST',
             url: storeReservation,
@@ -41,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             },
             complete: function() {
-
+                $(this).text('Agendar Reserva');
             }
         });
     })

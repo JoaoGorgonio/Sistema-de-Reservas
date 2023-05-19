@@ -23,10 +23,12 @@
                 <form method="POST" class="d-flex flex-wrap form-reservation">
                     @csrf
                     <div class="col-lg-4 col-12">
-                        <input type="date" name="date_reservation" class="w-100" min="{{ \Carbon\Carbon::now()->toDateString() }}" value="{{ \Carbon\Carbon::now()->toDateString() }}" required>
+                        <label for="date-reservation">Selecione uma data:</label>
+                        <input type="date" name="date_reservation" id="date-reservation" class="w-100" min="{{ \Carbon\Carbon::now()->toDateString() }}" value="{{ \Carbon\Carbon::now()->toDateString() }}" required>
                     </div>
                     <div class="col-lg-4 col-12 px-lg-4 mt-4 mt-lg-0">
-                        <select name="hour_reservation" class="w-100" required>
+                        <label for="hour-reservation">Selecione um horário:</label>
+                        <select name="hour_reservation" id="hour-reservation" class="w-100" required>
                             <option value="18:00:00" selected>18:00</option>
                             <option value="19:00:00">19:00</option>
                             <option value="20:00:00">20:00</option>
@@ -61,5 +63,6 @@
         const loadingTablesRoute = '{{ route('checktables') }}';
         const storeReservation = '{{ route('store') }}';
     </script>
+    <script src="{{ asset('src/sweetalert/sweetalert.js') }}"></script>
     <script src="{{ asset('js/system/reservation.js') }}"></script>
 @endsection

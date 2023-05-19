@@ -68,7 +68,6 @@
         <script src="{{ asset('src/jquery/jquery.js') }}"></script>
         <script src="{{ asset('src/jquery/jquery.validation.js') }}"></script>
         <script src="{{ asset('src/fontawesome/js/all.min.js') }}"></script>
-        <script src="{{ asset('src/sweetalert/sweetalert.js') }}"></script>
         <script src="{{ asset('js/app.js') }}"></script>
         @yield('scripts')
     </body>
