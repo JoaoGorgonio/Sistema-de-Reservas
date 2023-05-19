@@ -24,7 +24,7 @@
                         </div>
                         <div class="mt-5 col-12">
                             <label for="login-password">Senha:</label>
-                            <input type="password" name="password" class="col-12 rounded-1 p-2" id="login-password" value="digiliza123">
+                            <input type="password" name="password" class="col-12 rounded-1 p-2" id="login-password">
                         </div>
                         <button class="mt-5 py-2 rounded-3 enviar-form" type="submit">Entrar</button>
                         <span id="error-message" class="error-message"></span>
