@@ -20,7 +20,7 @@
                         <h1 class="text-center">Acessar Conta</h1>
                         <div class="mt-5 col-12">
                             <label for="login-email">E-mail:</label>
-                            <input type="email" name="email" class="col-12 rounded-1 p-2" id="login-email" value="digiliza@gmail.com">
+                            <input type="email" name="email" class="col-12 rounded-1 p-2" id="login-email">
                         </div>
                         <div class="mt-5 col-12">
                             <label for="login-password">Senha:</label>

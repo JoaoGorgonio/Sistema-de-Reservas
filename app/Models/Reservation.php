@@ -8,6 +8,7 @@ class Reservation extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
     protected $table = 'tb_reserva';
     protected $fillable = [
         'dt_reserva',

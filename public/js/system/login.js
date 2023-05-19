@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     $("input").prop('disabled', true);
                 },
                 success: function() {
-                    window.location.replace('/reservation');
+                    window.location.replace('/');
                 },
                 error: function(xhr) {
                     if (xhr.status === 401) {

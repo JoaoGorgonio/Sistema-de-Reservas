@@ -12,7 +12,6 @@ class LoginAuth
         if ($request->session()->get('cd_token') == null) {
             return redirect()->route('login');
         }
-
         return $next($request);
     }
 }

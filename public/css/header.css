@@ -1,0 +1,21 @@
+header {
+    background-color: var(--green);
+}
+
+header a {
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 400;
+}
+
+header a:hover {
+    color: var(--dark-green);
+    font-weight: 500;
+}
+
+@media (max-width: 991px) {
+    header svg {
+        color: var(--white);
+        font-size: 4rem;
+    }
+}
