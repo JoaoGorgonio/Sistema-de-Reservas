@@ -6,10 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Response;
-use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
@@ -29,6 +26,7 @@ class LoginController extends Controller
 
         $token = $user->createToken('token_name', ['cd_token'])->plainTextToken;
         $request->session()->put('cd_token', $token);
+        $request->session()->put('user', $user->toArray()); 
         return Response::json([
             'cd_token' => $token
         ]);
@@ -37,6 +35,7 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         $request->session()->pull('cd_token');
+        $request->session()->pull('user');
         return redirect()->route('login');
     }
 }

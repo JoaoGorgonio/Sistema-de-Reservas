@@ -1,0 +1,33 @@
+.reservations h1 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--dark-green);
+}
+
+.reservations h1 span {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--green);
+}
+
+.reservations .table-reservation {
+    background-color: var(--white);
+    border-radius: 0.6rem;
+}
+
+.reservations .table-reservation th {
+    background-color: var(--green);
+    color: var(--white);
+    font-weight: 600;
+    padding: 1rem 0rem;
+}
+
+.reservations .table-reservation td {
+    padding: 0.4rem 0rem;
+}
+
+@media (max-width: 991px) {
+    .reservations .table-reservation {
+        overflow: scroll;
+    }
+}

@@ -77,7 +77,7 @@ class TablesSeeder extends Seeder
             Table::create([
                 'ds_mesa' => $description['descricao'],
                 'qt_assentos' => $description['assentos'],
-                'im_mesa' => 'mesa' . $index+1,
+                'im_mesa' => 'mesa' . $index + 1 . '.jpeg',
             ]);
         }
     }
